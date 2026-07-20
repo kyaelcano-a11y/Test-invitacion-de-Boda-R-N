@@ -6,19 +6,18 @@
 <title>Romario &amp; Nicole · 21 de Noviembre 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Pinyon+Script&family=Forum&display=swap" rel="stylesheet">
 <style>
   :root{
-    --pearl: #FBF8F3;
-    --paper: #F7F0E4;
-    --champagne: #E9D8B4;
-    --champagne-deep: #D8BD86;
-    --gold: #A8813D;
-    --gold-light: #D9BB78;
-    --espresso: #221A12;
-    --espresso-2: #2E2416;
-    --ink: #3B2F22;
-    --ink-soft: #7C6C55;
+    --pearl: #FFFDF8;
+    --paper: #FBF3E1;
+    --champagne: #F2E2C0;
+    --champagne-deep: #E4C793;
+    --gold: #B4903F;
+    --gold-light: #E3C88C;
+    --gold-deep: #8C6B2E;
+    --ink: #4A4335;
+    --ink-soft: #9C8F73;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{ -webkit-text-size-adjust:100%; }
@@ -30,10 +29,10 @@
     overflow-x:hidden;
   }
   img{ max-width:100%; display:block; }
-  ::selection{ background:var(--champagne-deep); color:var(--espresso); }
+  ::selection{ background:var(--champagne-deep); color:var(--ink); }
 
   .eyebrow{
-    font-family:'Jost',sans-serif;
+    font-family:'Montserrat',sans-serif;
     font-size:.68rem;
     letter-spacing:.32em;
     text-transform:uppercase;
@@ -51,7 +50,7 @@
     position:fixed; inset:0;
     min-height:100vh; min-height:100dvh;
     display:flex; align-items:center; justify-content:center;
-    background: radial-gradient(ellipse at 50% 25%, var(--espresso-2) 0%, var(--espresso) 70%);
+    background: radial-gradient(ellipse at 50% 25%, var(--pearl) 0%, var(--champagne) 100%);
     z-index:50;
     transition:opacity .9s ease, visibility .9s ease;
     padding:24px;
@@ -59,12 +58,12 @@
   #envelope-screen.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
 
   .env-label{
-    font-family:'Jost',sans-serif;
+    font-family:'Montserrat',sans-serif;
     letter-spacing:.32em;
     font-size:11px;
     text-transform:uppercase;
-    color:var(--gold-light);
-    opacity:.8;
+    color:var(--gold-deep);
+    opacity:.85;
     text-align:center;
     margin-bottom:30px;
   }
@@ -83,7 +82,7 @@
   }
   .envelope-inner{
     position:absolute; inset:0;
-    filter:drop-shadow(0 18px 34px rgba(0,0,0,.5));
+    filter:drop-shadow(0 14px 26px rgba(180,144,63,.35));
   }
   .env-body{
     position:absolute; inset:0;
@@ -108,12 +107,10 @@
     border-radius:50%;
     transform:translate(-50%,-50%);
     display:flex; align-items:center; justify-content:center;
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-weight:600;
-    font-size:15px;
-    color:#3a2a12;
-    box-shadow:0 3px 10px rgba(0,0,0,.35), inset 0 1px 2px rgba(255,255,255,.45);
+    font-family:'Great Vibes',cursive;
+    font-size:22px;
+    color:var(--ink);
+    box-shadow:0 3px 10px rgba(140,107,46,.35), inset 0 1px 2px rgba(255,255,255,.5);
     z-index:3;
     transition:opacity .4s ease, transform .5s ease;
   }
@@ -121,11 +118,11 @@
 
   .env-cta{
     margin-top:26px;
-    font-family:'Jost',sans-serif;
+    font-family:'Montserrat',sans-serif;
     font-size:11px;
     letter-spacing:.26em;
     text-transform:uppercase;
-    color:var(--gold-light);
+    color:var(--gold-deep);
     opacity:.85;
     text-align:center;
     animation:pulse 2.6s ease-in-out infinite;
@@ -152,17 +149,17 @@
     margin-bottom:8px;
   }
   .hero-names{
-    font-weight:500;
-    font-style:italic;
-    font-size:clamp(2.5rem, 11vw, 4.2rem);
-    line-height:1.1;
+    font-family:'Pinyon Script', cursive;
+    font-weight:400;
+    font-size:clamp(3.2rem, 14vw, 5.6rem);
+    line-height:1.15;
     color:var(--ink);
     margin:0;
     letter-spacing:.01em;
   }
   .hero-amp{ color:var(--gold); display:inline-block; padding:0 .12em; }
   .hero-date{
-    font-family:'Jost',sans-serif;
+    font-family:'Montserrat',sans-serif;
     font-size:.85rem;
     letter-spacing:.2em;
     text-transform:uppercase;
@@ -208,13 +205,14 @@
   .gallery-grid img{ width:100%; height:100%; object-fit:cover; }
 
   /* COUNTDOWN */
-  #countdown{ background:var(--espresso); color:var(--pearl); }
-  #countdown .eyebrow{ color:var(--gold-light); }
+  #countdown{ background:linear-gradient(160deg, var(--champagne) 0%, var(--champagne-deep) 100%); color:var(--ink); }
+  #countdown .eyebrow{ color:var(--gold-deep); }
   #countdown h2{
-    font-weight:500; font-style:italic;
+    font-family:'Forum', serif;
+    font-weight:400;
     font-size:clamp(1.5rem,5.5vw,2.1rem);
     margin:0 0 34px;
-    color:var(--pearl);
+    color:var(--ink);
   }
   .count-grid{
     display:flex; justify-content:center; gap:clamp(10px,4vw,28px);
@@ -223,14 +221,14 @@
   .count-unit{ min-width:58px; }
   .count-num{
     font-size:clamp(1.9rem,7vw,2.8rem);
-    color:var(--gold-light);
+    color:var(--gold-deep);
     line-height:1;
     font-variant-numeric:tabular-nums;
   }
   .count-label{
-    font-family:'Jost',sans-serif;
+    font-family:'Montserrat',sans-serif;
     font-size:.58rem; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--pearl); opacity:.65; margin-top:8px;
+    color:var(--ink); opacity:.6; margin-top:8px;
   }
 
   /* DETALLES */
@@ -248,10 +246,56 @@
   }
   .card .eyebrow{ text-align:left; margin-bottom:10px; }
   .card h3{
-    font-style:italic; font-weight:500;
+    font-family:'Forum', serif;
+    font-weight:400;
     font-size:1.4rem; margin:0 0 10px; color:var(--ink);
   }
   .card p{ margin:3px 0; font-size:.98rem; color:var(--ink-soft); }
+
+  /* RSVP */
+  #rsvp{ background:var(--pearl); color:var(--ink); border-top:1px solid var(--champagne-deep); border-bottom:1px solid var(--champagne-deep); }
+  #rsvp .eyebrow{ color:var(--gold-deep); }
+  #rsvp h2{
+    font-family:'Forum', serif;
+    font-weight:400;
+    font-size:clamp(1.5rem,5.5vw,2.1rem);
+    margin:0 0 12px; color:var(--ink);
+  }
+  #rsvp .rsvp-sub{ color:var(--ink-soft); font-size:.95rem; margin-bottom:34px; }
+  .rsvp-form{ max-width:400px; margin:0 auto; text-align:left; }
+  .rsvp-field{ margin-bottom:18px; }
+  .rsvp-field label{
+    display:block; font-family:'Montserrat',sans-serif; font-size:.68rem;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--gold-deep);
+    opacity:.9; margin-bottom:7px;
+  }
+  .rsvp-field input, .rsvp-field select, .rsvp-field textarea{
+    width:100%; padding:11px 13px; border-radius:6px;
+    border:1px solid var(--champagne-deep);
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Cormorant Garamond',serif; font-size:1.05rem;
+  }
+  .rsvp-field select option{ color:var(--ink); }
+  .rsvp-field textarea{ resize:vertical; min-height:70px; }
+  .rsvp-submit{
+    width:100%; padding:14px; border:none; border-radius:6px;
+    background:var(--gold); color:#FFFDF8; cursor:pointer;
+    font-family:'Montserrat',sans-serif; font-size:.85rem; letter-spacing:.1em;
+    text-transform:uppercase; margin-top:6px;
+  }
+  .rsvp-submit:hover{ background:var(--gold-deep); }
+
+  /* CALENDARIO */
+  .calendar-actions{
+    display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:30px;
+  }
+  .cal-btn{
+    font-family:'Montserrat',sans-serif; font-size:.78rem; letter-spacing:.05em;
+    padding:11px 20px; border-radius:30px; cursor:pointer; text-decoration:none;
+    border:1px solid var(--gold); color:var(--gold); background:transparent;
+    display:inline-flex; align-items:center; gap:8px;
+  }
 
   /* CIERRE */
   #closing{ background:var(--pearl); padding-bottom:110px; }
@@ -265,7 +309,8 @@
   .ring-frame img{ width:100%; height:100%; object-fit:cover; }
   #closing .flourish{ font-size:1.3rem; color:var(--gold); margin-bottom:16px; }
   #closing h2{
-    font-style:italic; font-weight:500;
+    font-family:'Forum', serif;
+    font-weight:400;
     font-size:clamp(1.35rem,4.4vw,1.75rem);
     color:var(--ink);
     max-width:460px; margin:0 auto;
@@ -278,7 +323,7 @@
   }
   #closing .rsvp-note{
     margin-top:42px;
-    font-family:'Jost',sans-serif;
+    font-family:'Montserrat',sans-serif;
     font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
     color:var(--ink-soft); opacity:.85;
   }
@@ -287,17 +332,17 @@
   #music-toggle{
     position:fixed; bottom:max(18px, env(safe-area-inset-bottom)); right:18px; z-index:40;
     width:50px; height:50px; border-radius:50%;
-    background:var(--espresso); color:var(--gold-light);
+    background:var(--pearl); color:var(--gold-deep);
     border:1px solid var(--gold);
     display:flex; align-items:center; justify-content:center;
     cursor:pointer;
-    box-shadow:0 8px 18px rgba(0,0,0,.28);
+    box-shadow:0 8px 18px rgba(180,144,63,.28);
     opacity:0; transform:translateY(10px);
     transition:opacity .6s ease .6s, transform .6s ease .6s;
   }
   #music-toggle.show{ opacity:1; transform:translateY(0); }
   #music-toggle .bars{ display:flex; align-items:flex-end; gap:2px; height:13px; }
-  #music-toggle .bars span{ width:3px; background:var(--gold-light); border-radius:1px; animation:eq 1s ease-in-out infinite; }
+  #music-toggle .bars span{ width:3px; background:var(--gold-deep); border-radius:1px; animation:eq 1s ease-in-out infinite; }
   #music-toggle .bars span:nth-child(1){ height:6px; animation-delay:0s; }
   #music-toggle .bars span:nth-child(2){ height:13px; animation-delay:.2s; }
   #music-toggle .bars span:nth-child(3){ height:9px; animation-delay:.4s; }
@@ -345,7 +390,7 @@
     </section>
 
     <section id="hero-photo">
-      <div class="photo-wide"><img src="hero.jpg" alt="Romario y Nicole"></div>
+      <div class="photo-wide"><img src="fotos/hero.jpg" alt="Romario y Nicole"></div>
     </section>
 
     <section id="gallery">
@@ -353,8 +398,8 @@
         <div class="eyebrow">Nuestra historia</div>
         <div class="divider"></div>
         <div class="gallery-grid">
-          <div class="frame"><img src="foto-1.jpg" alt="Romario y Nicole></div>
-          <div class="frame"><img src="foto-2.jpg" alt="Romario y Nicole"></div>
+          <div class="frame"><img src="fotos/foto-1.jpg" alt="Romario y Nicole"></div>
+          <div class="frame"><img src="fotos/foto-2.jpg" alt="Romario y Nicole"></div>
         </div>
       </div>
     </section>
@@ -390,12 +435,42 @@
             <p>Lugar por confirmar</p>
           </div>
         </div>
+        <div class="calendar-actions">
+          <a href="#" class="cal-btn" id="googleCalBtn">+ Google Calendar</a>
+          <a href="#" class="cal-btn" id="icsBtn">+ Apple / Outlook</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp">
+      <div class="container">
+        <div class="eyebrow">Confirmación de asistencia</div>
+        <h2>¿Nos acompañas?</h2>
+        <p class="rsvp-sub">Confirma antes del 1 de noviembre de 2026</p>
+        <div class="rsvp-form">
+          <div class="rsvp-field">
+            <label>Nombre completo</label>
+            <input type="text" id="rsvpName" placeholder="Tu nombre">
+          </div>
+          <div class="rsvp-field">
+            <label>¿Asistirás?</label>
+            <select id="rsvpAttending">
+              <option value="Sí, ahí estaré">Sí, ahí estaré</option>
+              <option value="No podré asistir">No podré asistir</option>
+            </select>
+          </div>
+          <div class="rsvp-field">
+            <label>Mensaje para los novios (opcional)</label>
+            <textarea id="rsvpMessage" placeholder="Escribe algo lindo..."></textarea>
+          </div>
+          <button class="rsvp-submit" id="rsvpSubmit">Enviar confirmación</button>
+        </div>
       </div>
     </section>
 
     <section id="closing">
       <div class="container">
-        <div class="ring-frame"><img src="foto-3.jpg" alt="El anillo"></div>
+        <div class="ring-frame"><img src="fotos/foto-3.jpg" alt="El anillo"></div>
         <div class="flourish">✦</div>
         <h2>Tu presencia es el regalo más grande que podemos recibir en este día tan especial para nosotros.</h2>
         <div class="signature">Con todo nuestro amor,<br>Romario &amp; Nicole</div>
@@ -441,6 +516,63 @@
   }
   envelope.addEventListener('click', openInvitation);
   envelope.addEventListener('keypress', (e) => { if (e.key === 'Enter' || e.key === ' ') openInvitation(); });
+
+  // ---------- RSVP vía WhatsApp ----------
+  // ⚠️ CAMBIA este número por el de WhatsApp de Romario, formato: código país + número, sin +, sin espacios
+  // Ejemplo Nicaragua: "50588887777"
+  const WHATSAPP_NUMBER = "50500000000"; // <-- REEMPLAZAR
+
+  document.getElementById('rsvpSubmit').addEventListener('click', () => {
+    const name = document.getElementById('rsvpName').value.trim();
+    const attending = document.getElementById('rsvpAttending').value;
+    const message = document.getElementById('rsvpMessage').value.trim();
+
+    if (!name) {
+      document.getElementById('rsvpName').focus();
+      return;
+    }
+
+    let text = `Confirmación de asistencia — Boda Romario & Nicole%0A%0A`;
+    text += `Nombre: ${name}%0A`;
+    text += `Asistencia: ${attending}%0A`;
+    if (message) text += `Mensaje: ${message}%0A`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text.replace(/%0A/g, '\n'))}`;
+    window.open(waUrl, '_blank');
+  });
+
+  // ---------- Agregar al calendario ----------
+  const WEDDING_START = '20261121'; // formato YYYYMMDD (evento de día completo hasta tener hora exacta)
+  const WEDDING_END = '20261122';
+
+  document.getElementById('googleCalBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Boda de Romario & Nicole')}&dates=${WEDDING_START}/${WEDDING_END}&details=${encodeURIComponent('¡Nos casamos! Hora y lugar por confirmar.')}&location=${encodeURIComponent('Por confirmar')}`;
+    window.open(url, '_blank');
+  });
+
+  document.getElementById('icsBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      `UID:${Date.now()}@romario-nicole-boda`,
+      `DTSTAMP:${WEDDING_START}T000000Z`,
+      `DTSTART;VALUE=DATE:${WEDDING_START}`,
+      `DTEND;VALUE=DATE:${WEDDING_END}`,
+      'SUMMARY:Boda de Romario & Nicole',
+      'DESCRIPTION:¡Nos casamos! Hora y lugar por confirmar.',
+      'LOCATION:Por confirmar',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'boda-romario-nicole.ics';
+    link.click();
+  });
 
   // ---------- Cuenta regresiva ----------
   const WEDDING_DATE = new Date('2026-11-21T00:00:00');
