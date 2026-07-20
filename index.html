@@ -252,6 +252,34 @@
   }
   .card p{ margin:3px 0; font-size:.98rem; color:var(--ink-soft); }
 
+  /* CRONOGRAMA */
+  #schedule{ background:var(--pearl); }
+  .timeline{
+    max-width:420px; margin:36px auto 0; text-align:left;
+  }
+  .tl-item{
+    display:flex; gap:18px; padding-bottom:26px; position:relative;
+  }
+  .tl-item::before{
+    content:''; position:absolute; left:54px; top:22px; bottom:-4px;
+    width:1px; background:var(--champagne-deep);
+  }
+  .tl-item:last-child::before{ display:none; }
+  .tl-time{
+    font-family:'Montserrat',sans-serif;
+    font-size:.72rem; letter-spacing:.05em; color:var(--gold-deep);
+    width:54px; flex-shrink:0; padding-top:3px;
+  }
+  .tl-dot{
+    width:9px; height:9px; border-radius:50%; background:var(--gold);
+    margin-top:6px; flex-shrink:0;
+  }
+  .tl-label{ font-size:1.05rem; color:var(--ink); padding-top:0; }
+  .note{
+    text-align:center; font-size:.8rem; color:var(--ink-soft);
+    font-style:italic; margin-top:8px;
+  }
+
   /* RSVP */
   #rsvp{ background:var(--pearl); color:var(--ink); border-top:1px solid var(--champagne-deep); border-bottom:1px solid var(--champagne-deep); }
   #rsvp .eyebrow{ color:var(--gold-deep); }
@@ -401,6 +429,7 @@
           <div class="frame"><img src="foto-1.jpg" alt="Romario y Nicole"></div>
           <div class="frame"><img src="foto-2.jpg" alt="Romario y Nicole"></div>
         </div>
+        <p class="note" style="margin-top:20px;">Muy pronto compartiremos cómo empezó todo...</p>
       </div>
     </section>
 
@@ -424,21 +453,37 @@
         <div class="cards">
           <div class="card">
             <div class="eyebrow">Ceremonia</div>
-            <h3>21 de Noviembre, 2026</h3>
-            <p>Hora por confirmar</p>
-            <p>Lugar por confirmar</p>
+            <h3>4:00 PM</h3>
+            <p>Hotel Intercontinental Managua</p>
+            <p style="font-size:.82rem; opacity:.75;">(lugar por confirmar)</p>
           </div>
           <div class="card">
             <div class="eyebrow">Recepción</div>
             <h3>A continuación</h3>
-            <p>Hora por confirmar</p>
-            <p>Lugar por confirmar</p>
+            <p>Hotel Intercontinental Managua</p>
+            <p style="font-size:.82rem; opacity:.75;">(lugar por confirmar)</p>
           </div>
         </div>
         <div class="calendar-actions">
           <a href="#" class="cal-btn" id="googleCalBtn">+ Google Calendar</a>
           <a href="#" class="cal-btn" id="icsBtn">+ Apple / Outlook</a>
         </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="container">
+        <div class="eyebrow">Cronograma del día</div>
+        <div class="divider"></div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">4:00 PM</div><div class="tl-dot"></div><div class="tl-label">Ceremonia</div></div>
+          <div class="tl-item"><div class="tl-time">5:00 PM</div><div class="tl-dot"></div><div class="tl-label">Cóctail de bienvenida</div></div>
+          <div class="tl-item"><div class="tl-time">6:00 PM</div><div class="tl-dot"></div><div class="tl-label">Recepción</div></div>
+          <div class="tl-item"><div class="tl-time">7:00 PM</div><div class="tl-dot"></div><div class="tl-label">Cena</div></div>
+          <div class="tl-item"><div class="tl-time">8:00 PM</div><div class="tl-dot"></div><div class="tl-label">Primer baile</div></div>
+          <div class="tl-item"><div class="tl-time">9:00 PM</div><div class="tl-dot"></div><div class="tl-label">Fiesta y baile</div></div>
+        </div>
+        <p class="note">Horario referencial, sujeto a cambios</p>
       </div>
     </section>
 
@@ -520,7 +565,7 @@
   // ---------- RSVP vía WhatsApp ----------
   // ⚠️ CAMBIA este número por el de WhatsApp de Romario, formato: código país + número, sin +, sin espacios
   // Ejemplo Nicaragua: "50588887777"
-  const WHATSAPP_NUMBER = "50586188572"; // <-- REEMPLAZAR
+  const WHATSAPP_NUMBER = "50500000000"; // <-- REEMPLAZAR
 
   document.getElementById('rsvpSubmit').addEventListener('click', () => {
     const name = document.getElementById('rsvpName').value.trim();
@@ -542,28 +587,31 @@
   });
 
   // ---------- Agregar al calendario ----------
-  const WEDDING_START = '20261121'; // formato YYYYMMDD (evento de día completo hasta tener hora exacta)
-  const WEDDING_END = '20261122';
+  // Hora y lugar preliminares — actualiza aquí cuando estén confirmados
+  const WEDDING_LOCATION = 'Hotel Intercontinental Managua';
+  const WEDDING_START_LOCAL = '20261121T160000'; // 4:00 PM
+  const WEDDING_END_LOCAL = '20261121T230000';   // 11:00 PM aprox.
 
   document.getElementById('googleCalBtn').addEventListener('click', (e) => {
     e.preventDefault();
-    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Boda de Romario & Nicole')}&dates=${WEDDING_START}/${WEDDING_END}&details=${encodeURIComponent('¡Nos casamos! Hora y lugar por confirmar.')}&location=${encodeURIComponent('Por confirmar')}`;
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Boda de Romario & Nicole')}&dates=${WEDDING_START_LOCAL}/${WEDDING_END_LOCAL}&ctz=America/Managua&details=${encodeURIComponent('¡Nos casamos! Hora y lugar por confirmar antes de la fecha.')}&location=${encodeURIComponent(WEDDING_LOCATION + ' (por confirmar)')}`;
     window.open(url, '_blank');
   });
 
   document.getElementById('icsBtn').addEventListener('click', (e) => {
     e.preventDefault();
+    const dtStamp = new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
     const ics = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
       'BEGIN:VEVENT',
       `UID:${Date.now()}@romario-nicole-boda`,
-      `DTSTAMP:${WEDDING_START}T000000Z`,
-      `DTSTART;VALUE=DATE:${WEDDING_START}`,
-      `DTEND;VALUE=DATE:${WEDDING_END}`,
+      `DTSTAMP:${dtStamp}`,
+      `DTSTART;TZID=America/Managua:${WEDDING_START_LOCAL}`,
+      `DTEND;TZID=America/Managua:${WEDDING_END_LOCAL}`,
       'SUMMARY:Boda de Romario & Nicole',
-      'DESCRIPTION:¡Nos casamos! Hora y lugar por confirmar.',
-      'LOCATION:Por confirmar',
+      'DESCRIPTION:¡Nos casamos! Hora y lugar por confirmar antes de la fecha.',
+      `LOCATION:${WEDDING_LOCATION} (por confirmar)`,
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
@@ -573,6 +621,7 @@
     link.download = 'boda-romario-nicole.ics';
     link.click();
   });
+
 
   // ---------- Cuenta regresiva ----------
   const WEDDING_DATE = new Date('2026-11-21T00:00:00');
